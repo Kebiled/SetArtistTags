@@ -1,5 +1,5 @@
 """
-The purpose of this script is to add the artist ID3 tage to mp3 files
+The purpose of this script is to add the artist ID3 tags to mp3 files
 The files should be in the format "trackNumber - artist - song.mp3"
 
 Author: Kieran Meekan
