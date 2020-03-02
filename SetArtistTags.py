@@ -8,6 +8,8 @@ Date: 20200303
 
 # TO DO:
 # - Add a check for tags already existing
+# - Currently will not work on songs which have a '-' character in the title (i.e. remixes)
+#       - Need to check how the names are done by deezloader to ensure i can sort 
 
 import os
 import eyeD3
@@ -21,8 +23,14 @@ paths = [
 ]
 
 def get_artist_name(fileName):
-    artistName = fileName.split(" - ")[1]
-    return unicode(artistName)
+    if  len(fileName.split(" - ")) == 3
+        artistName = fileName.split(" - ")[1]
+        return unicode(artistName)
+    else:
+        print("Error: " + fileName + " has an incorrect number of '-' characters, unable to process")
+        errorList += [fileName]
+        errorCount += 1 
+        return unicode("")
 
 def set_artist_name(path, fileName):
     with open(path + fileName, 'r+') as file:
@@ -47,7 +55,7 @@ def main():
         print("Finished without error, all tags updated")
     else:
         print("Finished. Errors with the following files:")
-        for each fileName in errorList:
+        for fileName in errorList:
             print(fileName)
 
 main()
