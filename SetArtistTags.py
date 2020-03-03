@@ -24,14 +24,14 @@ paths = [
 
 def get_artist_name(fileName):
     """ fileName format "trackNumber - artist - song.mp3" """
-    if  len(fileName.split(" - ")) == 3
+    if  len(fileName.split(" - ")) == 3:
         artistName = fileName.split(" - ")[1]
-        return unicode(artistName)
+        return artistName.encode('unicode', 'ignore')
     else:
         print("Error: " + fileName + " has an incorrect number of '-' characters, unable to process")
         errorList += [fileName]
         errorCount += 1 
-        return unicode("")
+        return "".encode('unicode', 'ignore') # in python 3 all text is stored as unicode, this may not be required
 
 def set_artist_name(path, fileName):
     with open(path + fileName, 'r+') as file:
