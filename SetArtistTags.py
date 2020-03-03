@@ -23,6 +23,7 @@ paths = [
 ]
 
 def get_artist_name(fileName):
+    """ fileName format "trackNumber - artist - song.mp3" """
     if  len(fileName.split(" - ")) == 3
         artistName = fileName.split(" - ")[1]
         return unicode(artistName)
